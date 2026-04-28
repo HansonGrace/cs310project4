@@ -18,7 +18,7 @@ class Bob {
 
 	@Test
 	void testAliceThirdClojure() {
-		var third = Clojure.var("Eve", "third");
+		var third = Clojure.var("Lauren", "third");
 		var list = List.of("A", "B", "C", "D", "E");
 		assertEquals("C", third.invoke(list));
 	}
