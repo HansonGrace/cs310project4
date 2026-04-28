@@ -13,7 +13,7 @@ class Bob {
 	@BeforeAll
 	static void requires() {
         var require = Clojure.var("clojure.core", "require");
-        require.invoke(Clojure.read("Eve"));
+        require.invoke(Clojure.read("Lauren"));
 	}
 
 	@Test
