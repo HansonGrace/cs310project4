@@ -44,3 +44,18 @@ Original Scheme Functions
               (else (intersect (cdr lizt1) lizt2))
           )
       )
+
+
+
+/ Translate each function into Clojure, a Lisp dialect based on the Java platform.
+    / Preserve the declarative paradigm of the original functions.
+    / Preserve the recursive semantics of the original functions.
+/ Translate each function into Java also.
+    / Adopt the imperative paradigm instead of the declarative paradigm of the original functions.
+    / Either preserve the recursive semantics of the original functions or adopt equivalent iterative semantics instead.
+/ Integrate each of your translated functions into the given project template.
+    / Name your source code files based on their authors, following the examples in the template.
+    / Review each of your translated functions manually for correctness and proficiency.
+/ Create JUnit tests of each of your translated functions for a variety of meaningful cases.
+    / Name your unit test files based on their authors, following the examples in the template.
+    / Include typical cases and edge cases with full test coverage of your translated functions.
