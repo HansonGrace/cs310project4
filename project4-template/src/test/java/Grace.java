@@ -196,6 +196,7 @@ class Grace {
 	}
 
 	@Test
+	void testLaurenIntersectClojureFullOverlap() {
 		var intersect = Clojure.var("Lauren", "intersect");
 		assertEquals(List.of("A", "B"), intersect.invoke(List.of("A", "B"), List.of("A", "B", "C")));
 	}
