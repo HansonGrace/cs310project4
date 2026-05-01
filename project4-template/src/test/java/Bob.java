@@ -93,4 +93,42 @@ class Bob {
 		assertEquals(List.of("A", "B"), append.invoke(List.of("A"), List.of("B")));
 	}
 
+	//grace made these
+	//map JUNIT tests
+
+	@Test
+	void testLaurenMapClojureEmpty() {
+		var map = Clojure.var("Lauren", "map");
+		var inc = Clojure.var("clojure.core", "inc");
+		assertEquals(List.of(), map.invoke(inc, List.of()));
+	}
+
+	@Test
+	void testLaurenMapClojureSingleElement() {
+		var map = Clojure.var("Lauren", "map");
+		var inc = Clojure.var("clojure.core", "inc");
+		assertEquals(List.of(6L), map.invoke(inc, List.of(5)));
+	}
+
+	@Test
+	void testLaurenMapClojureIncrement() {
+		var map = Clojure.var("Lauren", "map");
+		var inc = Clojure.var("clojure.core", "inc");
+		assertEquals(List.of(2L, 3L, 4L), map.invoke(inc, List.of(1, 2, 3)));
+	}
+
+	@Test
+	void testLaurenMapClojureStringify() {
+		var map = Clojure.var("Lauren", "map");
+		var str = Clojure.var("clojure.core", "str");
+		assertEquals(List.of("1", "2", "3"), map.invoke(str, List.of(1, 2, 3)));
+	}
+
+	@Test
+	void testLaurenMapClojureLargerList() {
+		var map = Clojure.var("Lauren", "map");
+		var inc = Clojure.var("clojure.core", "inc");
+		assertEquals(List.of(11L, 21L, 31L, 41L), map.invoke(inc, List.of(10, 20, 30, 40)));
+	}
+
 }
