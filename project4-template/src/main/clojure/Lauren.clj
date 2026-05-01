@@ -41,6 +41,7 @@
 
 (defn intersect [lizt1 lizt2] (
 	(cond
+	;; issue: using ‘() instead of '()
 		((empty? lizt1) ‘())
 		((member (first lizt1) lizt2) (cons (first lizt1) (recur (rest lizt1) lizt2)))
 		:else (recur (rest lizt1) lizt2))
