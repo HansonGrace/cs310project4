@@ -2,6 +2,10 @@
 
 ;; Lauren made these functions
 
+;; issue: every defn body funct is wrapped with an extra pair of paranthesis (). example: (defn member [atm list] ( (cond..)))
+;; the iner () calls the result of cond as a zero arg function so every function is gonna throw at runtime. Need to remove every extra
+;; paranthesis around each body -grace
+
 (defn member [atm lizt] (
 	(cond
 		((empty? lizt) false)
