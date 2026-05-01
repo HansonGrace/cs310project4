@@ -61,4 +61,36 @@ class Bob {
 		assertEquals(false, member.invoke("Z", List.of("A", "B", "C")));
 	}
 
+	//append JUNIT tests
+
+	@Test
+	void testLaurenAppendClojureBothEmpty() {
+		var append = Clojure.var("Lauren", "append");
+		assertEquals(List.of(), append.invoke(List.of(), List.of()));
+	}
+
+	@Test
+	void testLaurenAppendClojureFirstEmpty() {
+		var append = Clojure.var("Lauren", "append");
+		assertEquals(List.of("A", "B"), append.invoke(List.of(), List.of("A", "B")));
+	}
+
+	@Test
+	void testLaurenAppendClojureSecondEmpty() {
+		var append = Clojure.var("Lauren", "append");
+		assertEquals(List.of("A", "B"), append.invoke(List.of("A", "B"), List.of()));
+	}
+
+	@Test
+	void testLaurenAppendClojureTypicalConcat() {
+		var append = Clojure.var("Lauren", "append");
+		assertEquals(List.of("A", "B", "C", "D"), append.invoke(List.of("A", "B"), List.of("C", "D")));
+	}
+
+	@Test
+	void testLaurenAppendClojureSingletons() {
+		var append = Clojure.var("Lauren", "append");
+		assertEquals(List.of("A", "B"), append.invoke(List.of("A"), List.of("B")));
+	}
+
 }
