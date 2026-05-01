@@ -2,10 +2,6 @@
 
 ;; Lauren made these functions
 
-
-(defn third [lizt] (nth lizt 2))
-
-
 (defn member [atm lizt]
 	(cond
 		(empty? lizt) false
