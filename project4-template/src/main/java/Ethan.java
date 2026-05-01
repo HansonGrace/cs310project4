@@ -5,9 +5,6 @@ import java.util.function.Function;
 // Ethan made these functions
 
 public class Ethan {
-	public static <T> T third(List<T> lizt) {
-		return lizt.get(2);
-	}
 
 	public static <T> boolean member(T atm, List<T> lizt){
 		if(lizt.isEmpty()){
