@@ -6,6 +6,7 @@
 	(cond
 		((empty? lizt) false)
 		((identical? atm (first lizt)) true)
+		;; issue: (atm) calls atm as a zero arg function instead of passing the value, should just be atm no ()
 		:else (recur (atm) (rest lizt)))
 	)
 )
@@ -21,6 +22,7 @@
 
 (defn map [fun lizt] (
 	(cond
+	;; issue: using ‘() instead of '()
 		((empty? lizt) ‘())
 		:else (cons (fun (first lizt)) (recur (fun (rest lizt))))
 	)
