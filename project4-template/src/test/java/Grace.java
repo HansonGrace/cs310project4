@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import clojure.java.api.Clojure;
 
-// Bob made these tests
+// Grace made these tests
 
-class Bob {
+class Grace {
 	@BeforeAll
 	static void requires() {
         var require = Clojure.var("clojure.core", "require");
@@ -167,6 +167,49 @@ class Bob {
 	void testLaurenSameClojureDifferentElement() {
 		var same = Clojure.var("Lauren", "same");
 		assertEquals(false, same.invoke(List.of("A", "X", "C"), List.of("A", "B", "C")));
+	}
+
+	//intersect JUNIT tests
+
+	@Test
+	void testLaurenIntersectClojureBothEmpty() {
+		var intersect = Clojure.var("Lauren", "intersect");
+		assertEquals(List.of(), intersect.invoke(List.of(), List.of()));
+	}
+
+	@Test
+	void testLaurenIntersectClojureFirstEmpty() {
+		var intersect = Clojure.var("Lauren", "intersect");
+		assertEquals(List.of(), intersect.invoke(List.of(), List.of("A", "B")));
+	}
+
+	@Test
+	void testLaurenIntersectClojureSecondEmpty() {
+		var intersect = Clojure.var("Lauren", "intersect");
+		assertEquals(List.of(), intersect.invoke(List.of("A", "B"), List.of()));
+	}
+
+	@Test
+	void testLaurenIntersectClojureNoOverlap() {
+		var intersect = Clojure.var("Lauren", "intersect");
+		assertEquals(List.of(), intersect.invoke(List.of("A", "B"), List.of("C", "D")));
+	}
+
+	@Test
+		var intersect = Clojure.var("Lauren", "intersect");
+		assertEquals(List.of("A", "B"), intersect.invoke(List.of("A", "B"), List.of("A", "B", "C")));
+	}
+
+	@Test
+	void testLaurenIntersectClojurePartialOverlap() {
+		var intersect = Clojure.var("Lauren", "intersect");
+		assertEquals(List.of("B", "D"), intersect.invoke(List.of("A", "B", "C", "D"), List.of("B", "D", "E")));
+	}
+
+	@Test
+	void testLaurenIntersectClojureDuplicatesKept() {
+		var intersect = Clojure.var("Lauren", "intersect");
+		assertEquals(List.of("A", "A", "B"), intersect.invoke(List.of("A", "A", "B"), List.of("A", "B")));
 	}
 
 }
