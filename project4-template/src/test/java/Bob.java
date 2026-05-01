@@ -17,15 +17,15 @@ class Bob {
 	}
 
 	@Test
-	void testAliceThirdClojure() {
+	void testLaurenThirdClojure() {
 		var third = Clojure.var("Lauren", "third");
 		var list = List.of("A", "B", "C", "D", "E");
 		assertEquals("C", third.invoke(list));
 	}
 
 	@Test
-	void testAliceThirdJava() {
+	void testEthanThirdJava() {
 		var list = List.of("A", "B", "C", "D", "E");
-		assertEquals("C", Alice.third(list));
+		assertEquals("C", Ethan.third(list));
 	}
 }
