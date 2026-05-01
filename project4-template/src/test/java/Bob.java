@@ -131,4 +131,42 @@ class Bob {
 		assertEquals(List.of(11L, 21L, 31L, 41L), map.invoke(inc, List.of(10, 20, 30, 40)));
 	}
 
+	//same JUNIT tests
+
+	@Test
+	void testLaurenSameClojureBothEmpty() {
+		var same = Clojure.var("Lauren", "same");
+		assertEquals(true, same.invoke(List.of(), List.of()));
+	}
+
+	@Test
+	void testLaurenSameClojureFirstEmpty() {
+		var same = Clojure.var("Lauren", "same");
+		assertEquals(false, same.invoke(List.of(), List.of("A")));
+	}
+
+	@Test
+	void testLaurenSameClojureSecondEmpty() {
+		var same = Clojure.var("Lauren", "same");
+		assertEquals(false, same.invoke(List.of("A"), List.of()));
+	}
+
+	@Test
+	void testLaurenSameClojureEqualLists() {
+		var same = Clojure.var("Lauren", "same");
+		assertEquals(true, same.invoke(List.of("A", "B", "C"), List.of("A", "B", "C")));
+	}
+
+	@Test
+	void testLaurenSameClojureDifferentLength() {
+		var same = Clojure.var("Lauren", "same");
+		assertEquals(false, same.invoke(List.of("A", "B"), List.of("A", "B", "C")));
+	}
+
+	@Test
+	void testLaurenSameClojureDifferentElement() {
+		var same = Clojure.var("Lauren", "same");
+		assertEquals(false, same.invoke(List.of("A", "X", "C"), List.of("A", "B", "C")));
+	}
+
 }
